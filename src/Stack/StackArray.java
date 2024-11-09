@@ -1,3 +1,5 @@
+package Stack;
+
 import Excepciones.FullException;
 import Gadgets.Stack;
 
