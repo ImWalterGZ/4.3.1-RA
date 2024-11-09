@@ -1,0 +1,27 @@
+Resultado de aprendizaje de la cuarta unidad.
+Utilizando la clase de Pilas creado con listas dobles realice lo siguiente:
+Ejercicio 1:
+En un establo se guarda un rebaño de hipopótamos. Se desea ordenar los hipopótamos según su peso, usando dos establos adicionales. Los establos son tan angostos que los hipopótamos deben estar formados en fila (pila). Cada establo tiene una abertura que es la entrada y salida al mismo tiempo. Mostrar la pila original y la pila de hipopótamos ordenada por su peso de mayor a menor.
+Nota el usuario deberá introducir la pila original con los pesos de los hipopótamos (10 hipos)
+ 
+Utilizando la clase de Colas creado con listas dobles realice lo siguiente:
+Ejercicio 1:
+Realice un programa Agenda que almacene en una cola las actividades del día, el programa deberá permitir:
+a) Insertar una actividad (estatus activa)
+b) Borrar una actividad
+c) Borrar todas las actividades del día.
+d) Cancelar la actividad (estatus pendiente)
+e) Mover la actividad actual al final
+f) Ver todas las actividades activas
+g) Ver todas las actividades pendientes
+La actividad de la agenda debe de tener al menos los siguientes elementos:
+a) Numero de la actividad (se generará automáticamente).
+b) Actividad para realizar (Nombre).
+c) La hora en que se realizara la actividad
+d) El estatus de la actividad
+ 
+Cree un menú para probar todos los métodos anteriores
+ 
+ 
+ 
+ 
