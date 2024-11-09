@@ -7,7 +7,7 @@ import java.util.Arrays;
 import java.util.EmptyStackException;
 import java.util.Iterator;
 
-public class StackArray<T> implements Stack<T>, Iterable<T> {
+public class StackArray<T extends Comparable<T>> implements Stack<T>, Iterable<T> {
     private int _size, _top;
     private final static int SIZE = 10;
     private T[] _stack;
@@ -17,8 +17,8 @@ public class StackArray<T> implements Stack<T>, Iterable<T> {
     }
 
     public StackArray(int size) {
-        _stack = (T[]) new Object[size <= 0 ? SIZE : size];
-        _top = 0;
+        _stack = (T[]) new Comparable[size <= 0 ? SIZE : size];
+        _top = -1;
         _size = _stack.length;
 
 
@@ -38,10 +38,7 @@ public class StackArray<T> implements Stack<T>, Iterable<T> {
 
     @Override
     public boolean isEmpty() throws EmptyStackException {
-        if (_top < 0) throw new EmptyStackException();
-        else {
-            return false;
-        }
+        return (_top < 0);
     }
 
     @Override
@@ -88,7 +85,8 @@ public class StackArray<T> implements Stack<T>, Iterable<T> {
 
         return null;
     }
-// Al integrar el iterator a la clase, le damos la facultad de recorrer el arreglo stack al hacer una llamada de for mejorado
+
+    // Al integrar el iterator a la clase, le damos la facultad de recorrer el arreglo stack al hacer una llamada de for mejorado
     @Override
     public int search(T element) throws EmptyStackException {
         int counter = _top;
@@ -124,5 +122,41 @@ public class StackArray<T> implements Stack<T>, Iterable<T> {
                 return _stack[pico--];
             }
         };
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder result = new StringBuilder("[");
+        for (int i = 0; i <= _top; i++) {
+            result.append(_stack[i]);
+            if (i < _top) {
+                result.append(", ");
+            }
+        }
+        result.append("]");
+        return result.toString();
+    }
+
+    public StackArray<T> sort() {
+        try {
+            StackArray<T> tempStack = new StackArray<T>();
+
+            while (!isEmpty()) {
+                T current = this.pop();
+
+                while (!tempStack.isEmpty() && tempStack.peek().compareTo(current) < 0) {
+                    push(tempStack.pop());
+                }
+
+                tempStack.push(current);
+            }
+
+            return tempStack;
+
+        } catch (EmptyStackException e) {
+            // al principio se intentó mantener que el metodo isEmpty() lanzara la excepcion de EmtpyStackException,
+            // pero la implementación podía ser mucho más simple al devolver el boolean true si estaba vacia
+            return new StackArray<T>();
+        }
     }
 }
