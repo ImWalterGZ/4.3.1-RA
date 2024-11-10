@@ -6,7 +6,7 @@ import java.util.EmptyStackException;
 
 public interface Stack<T> {
 
-    int getTop();
+    long getTop();
 
     boolean isEmpty() throws EmptyStackException;
 

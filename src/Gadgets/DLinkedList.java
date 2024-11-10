@@ -5,7 +5,7 @@ import java.util.NoSuchElementException;
 
 public class DLinkedList<T> implements Lista<T> {
 
-    private Nodo<T> root, tail;
+    protected Nodo<T> root, tail;
     private long length;
 
     public Iterator<T> right() {
@@ -74,10 +74,7 @@ public class DLinkedList<T> implements Lista<T> {
 
     @Override
     public boolean isEmpty() {
-        if (root.getRight() == null && tail.getLeft() == null) {
-            throw new NoSuchElementException("La lista está vacía");
-        }
-        return false;
+        return root.getRight() == null && tail.getLeft() == null;
     }
 
     public Nodo<T> getLastElement() {
@@ -274,7 +271,11 @@ public class DLinkedList<T> implements Lista<T> {
 
     @Override
     public long getLength() {
-        return 0;
+        return this.length;
+    }
+
+    public void setLength(long act) {
+        length = act;
     }
 
     @Override

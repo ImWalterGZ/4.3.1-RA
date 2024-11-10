@@ -5,9 +5,9 @@ import Excepciones.FullException;
 
 
 public interface IQueue<T> {
-    boolean add(T element) throws FullException;
+    void add(T element) throws FullException;
 
-    T element();
+    T element() throws EmptyException;
 
     boolean offer(T element) throws FullException;
 

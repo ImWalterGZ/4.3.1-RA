@@ -32,7 +32,7 @@ public class StackArray<T extends Comparable<T>> implements Stack<T>, Iterable<T
     }
 
     @Override
-    public int getTop() {
+    public long getTop() {
         return _top;
     }
 

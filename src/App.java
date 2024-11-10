@@ -1,4 +1,4 @@
-import Stack.StackArray;
+import Stack.StackLinked;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -6,8 +6,12 @@ import java.io.IOException;
 
 public class App {
     public static void main(String[] args) throws Exception {
+        EstabloTest();
+    }
+    
+    public static void EstabloTest() {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-        StackArray<Double> establo = new StackArray<Double>();
+        StackLinked<Double> establo = new StackLinked<Double>();
 
         System.out.println("Ingrese el peso de 10 hipopótamos:");
 
@@ -18,17 +22,17 @@ public class App {
                 establo.push(peso);
             }
 
-
             reader.close();
+            
+            System.out.println("Establo original: " + establo);
+            StackLinked<Double> establoOrdenado = establo.sort();
+            System.out.println("Establo ordenado: " + establoOrdenado.toString());
+            
         } catch (IOException e) {
             System.out.println("Error de lectura: " + e.getMessage());
         } catch (NumberFormatException e) {
             System.out.println("Error: Por favor ingrese un número válido");
         }
-
-
-        System.out.println("Establo origintal: " + establo);
-        StackArray<Double> establoOrdenado = establo.sort();
-        System.out.println("Establo ordenado: " + establoOrdenado.toString());
     }
 }
+
