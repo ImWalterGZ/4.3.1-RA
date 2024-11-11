@@ -13,10 +13,16 @@ public class QueueLinked<T> extends DLinkedList<T> implements IQueue<T>, Iterabl
 
     public QueueLinked() {
         super();
+        // aqui fue donde me di cuenta, despues de ver la pantalla fijamente por 5 minutos
+        // que las listas ya son colas.
+        
     }
 
     public QueueLinked(long size){
         super();
+        // y aqui fue donde vi que no neceistaba ni que hacer un constructor con parametros
+        // porque definir una longitud maxima no tiene sentido en una cola hecha de listas.
+        // unos genios
     }
 
 
@@ -77,6 +83,9 @@ public class QueueLinked<T> extends DLinkedList<T> implements IQueue<T>, Iterabl
     @Override
     public boolean isFull() {
         return getLength() >= _maxLength;
+        // si, no tiene sentido.
+
+        // pero, algo de esto si lo tiene?
     }
 
     @Override
@@ -86,18 +95,14 @@ public class QueueLinked<T> extends DLinkedList<T> implements IQueue<T>, Iterabl
         }
 
         StringBuilder sb = new StringBuilder();
-        sb.append("[");
+        sb.append("");
 
         Nodo<T> current = root.getRight();
         while (current != null) {
             sb.append(current.getValue());
-            if (current.getRight() != null) {
-                sb.append(", ");
-            }
             current = current.getRight();
         }
 
-        sb.append("]");
         return sb.toString();
     }
 
